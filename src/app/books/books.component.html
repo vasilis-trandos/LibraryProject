@@ -1,8 +1,14 @@
-<ul>
-    @for(post of books; track post.id) {
-        <li>
-            <h3>{{post.name}}</h3>
-            <p></p>
-        </li>
-    }
-</ul>
+<div class="books-list">
+    <h2>Books List</h2>
+    <ul>
+      <li *ngFor="let book of books" class="book-item">
+        <h3>{{ book.name }}</h3>
+        <p>Author: {{ book.author }}</p>
+        <p>Available: {{ book.available }}</p>
+        <p>Type: {{ book.type }}</p>
+        <p>Year: {{ book.year }}</p>
+        <p>CreatedOn: {{ book.createdOn }}</p>
+      </li>
+    </ul>
+</div>
+  
