@@ -3,14 +3,14 @@
     <ul>
       <li *ngFor="let reservation of reservations" class="reservation-item">
         <h3>Reservation ID: {{ reservation._id }}</h3>
-        <p><strong>Book:</strong> {{ reservation.book.name }} ({{ reservation.book.year }})</p>
-        <p><strong>Author:</strong> {{ reservation.book.author }}</p>
-        <p><strong>Customer:</strong> {{ reservation.customer.name }} {{ reservation.customer.surname }}</p>
-        <p><strong>Email:</strong> {{ reservation.customer.email }}</p>
-        <p><strong>Phone:</strong> {{ reservation.customer.phoneNumber }}</p>
-        <p><strong>Reserved On:</strong> {{ reservation.reservedOn | date }}</p>
-        <p><strong>Return By:</strong> {{ reservation.returnBy | date }}</p>
-        <p><strong>Status:</strong> {{ reservation.status }}</p>
+        <p>Book: {{ reservation.book.name }} ({{ reservation.book.year }})</p>
+        <p>Author: {{ reservation.book.author }}</p>
+        <p>Customer: {{ reservation.customer.name }} {{ reservation.customer.surname }}</p>
+        <p>Email: {{ reservation.customer.email }}</p>
+        <p>Phone: {{ reservation.customer.phoneNumber }}</p>
+        <p>Reserved On: {{ reservation.reservedOn | date }}</p>
+        <p>Return By: {{ reservation.returnBy | date }}</p>
+        <p>Status: {{ reservation.status }}</p>
       </li>
     </ul>
   </div>

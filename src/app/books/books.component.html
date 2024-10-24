@@ -3,6 +3,7 @@
     <ul>
       <li *ngFor="let book of books" class="book-item">
         <h3>{{ book.name }}</h3>
+        <img [src]="book.imageUrl" alt="{{ book.name }} image" width="150" height="200">
         <p>Author: {{ book.author }}</p>
         <p>Available: {{ book.available }}</p>
         <p>Type: {{ book.type }}</p>
