@@ -1,1 +1,9 @@
-<p>Home is works!</p>
+<div class="home-books-list">
+  <ul>
+    <li *ngFor="let book of home" class="book-item">
+      <h3>{{ book.name }}</h3>
+      <img [src]="book.imageUrl" alt="{{ book.name }} image" width="150" height="200"> 
+      <p>Available: {{ book.available }}</p>
+    </li>
+  </ul>
+</div>
