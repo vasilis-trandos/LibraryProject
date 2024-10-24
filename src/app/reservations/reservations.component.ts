@@ -1,10 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Reservation } from './reservations';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-reservations',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, CommonModule],
   templateUrl: './reservations.component.html',
   styleUrls: ['./reservations.component.css']
 })
@@ -17,7 +19,7 @@ export class ReservationsComponent implements OnInit {
   }
 
   fetchReservations() {
-    this.httpClient.get(' https://book-api-bx2r.onrender.com/reservations') // Replace with your API endpoint
+    this.httpClient.get('https://book-api-bx2r.onrender.com/reservations')
       .subscribe((data: any) => {
         console.log(data);
         this.reservations = data;

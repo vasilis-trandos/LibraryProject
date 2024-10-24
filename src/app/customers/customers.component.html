@@ -1,1 +1,11 @@
-<p>customers works!</p>
+<div class="customers-list">
+    <h2>Customers List</h2>
+    <ul>
+      <li *ngFor="let customer of customers" class="customer-item">
+        <h3>{{ customer.name }} {{ customer.surname }}</h3>
+        <p>Email: {{ customer.email }}</p>
+        <p>Phone Number: {{ customer.phoneNumber }}</p>
+      </li>
+    </ul>
+  </div>
+  
