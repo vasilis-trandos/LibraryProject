@@ -1,15 +1,31 @@
 <div class="books-list">
-    <h2>Books List</h2>
-    <ul>
-      <li *ngFor="let book of books" class="book-item">
-        <h3>{{ book.name }}</h3>
-        <img [src]="book.imageUrl" alt="{{ book.name }} image" width="150" height="200">
-        <p>Author: {{ book.author }}</p>
-        <p>Available: {{ book.available }}</p>
-        <p>Type: {{ book.type }}</p>
-        <p>Year: {{ book.year }}</p>
-        <p>CreatedOn: {{ book.createdOn }}</p>
-      </li>
-    </ul>
+  <h2>Books List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Year</th>
+        <th>Type</th>
+        <th>Author</th>
+        <th>Created On</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td><img [src]="book.imageUrl" alt="{{ book.name }} image" width="50" height="75"></td>
+        <td>{{ book.name }}</td>
+        <td>{{ book.year }}</td>
+        <td>{{ book.type }}</td>
+        <td>{{ book.author }}</td>
+        <td class="date-cell">{{ book.createdOn | date }}</td>
+        <td class="actions">
+          <button (click)="viewBook(book)">View</button>
+          <button (click)="editBook(book)">Edit</button>
+          <button (click)="deleteBook(book)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-  

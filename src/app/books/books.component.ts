@@ -30,4 +30,16 @@ export class BooksComponent implements OnInit {
         }))
       });
   }
+
+  viewBook(book: Book) {
+    console.log("View book:", book);
+  }
+
+  editBook(book: Book) {
+    console.log("Edit book:", book);
+  }
+
+  deleteBook(book: Book) {
+    console.log("Delete book:", book);
+  }
 }

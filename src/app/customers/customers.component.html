@@ -1,11 +1,27 @@
 <div class="customers-list">
-    <h2>Customers List</h2>
-    <ul>
-      <li *ngFor="let customer of customers" class="customer-item">
-        <h3>{{ customer.name }} {{ customer.surname }}</h3>
-        <p>Email: {{ customer.email }}</p>
-        <p>Phone Number: {{ customer.phoneNumber }}</p>
-      </li>
-    </ul>
-  </div>
-  
+  <h2>Customers List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.surname }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.phoneNumber }}</td>
+        <td class="actions">
+          <button class="view-button" (click)="viewCustomer(customer)">View</button>
+          <button class="edit-button" (click)="editCustomer(customer)">Edit</button>
+          <button class="delete-button" (click)="deleteCustomer(customer)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

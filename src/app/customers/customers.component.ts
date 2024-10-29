@@ -25,6 +25,17 @@ export class CustomersComponent implements OnInit {
         this.customers = data;
       });
   }
+  viewCustomer(customer: Customer) {
+    console.log("View customer:", customer);
+  }
+
+  editCustomer(customer: Customer) {
+    console.log("Edit customer:", customer);
+  }
+
+  deleteCustomer(customer: Customer) {
+    console.log("Delete customer:", customer);
+  }
 }
 
 

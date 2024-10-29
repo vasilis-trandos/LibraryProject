@@ -25,4 +25,15 @@ export class ReservationsComponent implements OnInit {
         this.reservations = data;
       });
   }
+  viewReservation(reservation: any) {
+    console.log("View reservation:", reservation);
+  }
+
+  editReservation(reservation: any) {
+    console.log("Edit reservation:", reservation);
+  }
+
+  deleteReservation(reservation: any) {
+    console.log("Delete reservation:", reservation);
+  }
 }

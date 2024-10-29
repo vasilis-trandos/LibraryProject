@@ -1,15 +1,37 @@
+/* Βασικές Ρυθμίσεις για το Footer */
 footer {
-    background-color: #4A4E69;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  background-color: #1e2a38; /* Σκούρο μπλε φόντο */
+  border-top: 3px solid #d4af37; /* Χρυσό πάνω περίγραμμα */
+  padding: 20px 0;
+  text-align: center;
+  color: #ffffff; /* Λευκό κείμενο */
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2); /* Ελαφριά σκιά στο πάνω μέρος */
+}
+
+/* Στυλ για Σύνδεσμους στο Footer */
+footer a {
+  color: #ffffff; /* Λευκό για αντίθεση */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1rem;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+/* Εφέ Hover στους Σύνδεσμους */
+footer a:hover {
+  background-color: #d4af37; /* Χρυσό */
+  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
+}
+
+/* Responsive Στυλ */
+@media (max-width: 768px) {
+  footer a {
+      display: block;
+      margin: 5px 0;
+      font-size: 0.9rem;
+      padding: 6px 12px;
   }
-  
-  footer p {
-    margin: 0;
-  }
-  
+}
