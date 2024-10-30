@@ -1,16 +1,31 @@
 <div class="reservations-list">
-    <h2>Reservations List</h2>
-    <ul>
-      <li *ngFor="let reservation of reservations" class="reservation-item">
-        <h3>Reservation ID: {{ reservation._id }}</h3>
-        <p>Book: {{ reservation.book.name }} ({{ reservation.book.year }})</p>
-        <p>Author: {{ reservation.book.author }}</p>
-        <p>Customer: {{ reservation.customer.name }} {{ reservation.customer.surname }}</p>
-        <p>Email: {{ reservation.customer.email }}</p>
-        <p>Phone: {{ reservation.customer.phoneNumber }}</p>
-        <p>Reserved On: {{ reservation.reservedOn | date }}</p>
-        <p>Return By: {{ reservation.returnBy | date }}</p>
-        <p>Status: {{ reservation.status }}</p>
-      </li>
-    </ul>
-  </div>
+  <h2>Reservations List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Book Name</th>
+        <th>Reservation ID</th>
+        <th>Customer Name</th>
+        <th>Status</th>
+        <th>Reserved On</th>
+        <th>Return By</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations">
+        <td>{{ reservation.book.name }} ({{ reservation.book.year }})</td>
+        <td>{{ reservation._id }}</td>
+        <td>{{ reservation.customer.name }} {{ reservation.customer.surname }}</td>
+        <td>{{ reservation.status }}</td>
+        <td class="date-cell">{{ reservation.reservedOn | date }}</td>
+        <td class="date-cell">{{ reservation.returnBy | date }}</td>
+        <td class="actions">
+          <button class="view-button" (click)="viewReservation(reservation)">View</button>
+          <button class="edit-button" (click)="editReservation(reservation)">Edit</button>
+          <button class="delete-button" (click)="deleteReservation(reservation)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

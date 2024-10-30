@@ -1,0 +1,103 @@
+/* Ρυθμίσεις για το Κεντρικό Κορμό */
+main {
+  background-color: #f5f5f5; /* Ανοιχτό γκρι φόντο για αντίθεση */
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #333333; /* Σκούρο γκρι για το κείμενο */
+  line-height: 1.6;
+}
+
+/* Στυλ για Τίτλους */
+main h1, main h2, main h3 {
+  color: #1e2a38; /* Σκούρο μπλε όπως το header και footer */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Στυλ για Κουμπιά */
+button {
+  background-color: #d4af37; /* Χρυσό για έμφαση */
+  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: 10px; /* Προσθέτει κενό μεταξύ των κουμπιών */
+}
+
+button:last-child {
+  margin-right: 0; /* Για να μην υπάρχει περιττό κενό στο τελευταίο κουμπί */
+}
+
+button:hover {
+  background-color: #1e2a38; /* Σκούρο μπλε στο hover */
+  color: #ffffff; /* Λευκό κείμενο για αντίθεση */
+}
+
+/* Στυλ για Κάρτες Περιεχομένου */
+.card {
+  background-color: #ffffff; /* Λευκό φόντο για κάρτες */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Σύνδεσμοι εντός του Κεντρικού Κορμού */
+main a {
+  color: #1e2a38; /* Σκούρο μπλε */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+main a:hover {
+  color: #d4af37; /* Χρυσό στο hover */
+}
+
+/* Στυλ για Πίνακες */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+table th {
+  background-color: #1e2a38; /* Σκούρο μπλε για κεφαλίδες */
+  color: #ffffff;
+}
+
+table tr:nth-child(even) {
+  background-color: #f5f5f5; /* Ανοιχτό γκρι */
+}
+
+/* Responsive Ρυθμίσεις για Κεντρικό Κορμό */
+@media (max-width: 768px) {
+  .card {
+      padding: 15px;
+  }
+
+  table, table th, table td {
+      font-size: 0.9rem;
+  }
+
+  button {
+      padding: 8px 15px;
+      font-size: 0.9rem;
+  }
+}
