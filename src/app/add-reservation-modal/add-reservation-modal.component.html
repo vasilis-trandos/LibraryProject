@@ -1,0 +1,34 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Reservation</h2>
+        <button (click)="closeModal()" class="close-button">X</button>
+      </div>
+  
+      <form (ngSubmit)="saveReservation()" #reservationForm="ngForm" class="add-form">
+        <label>
+          Book:
+          <select [(ngModel)]="newReservation.bookId" name="bookId" required>
+            <option *ngFor="let book of books" [value]="book._id">{{ book.name }}</option>
+          </select>
+        </label>
+        
+        <label>
+          Customer:
+          <select [(ngModel)]="newReservation.customerId" name="customerId" required>
+            <option *ngFor="let customer of customers" [value]="customer._id">{{ customer.name }} {{ customer.surname }}</option>
+          </select>
+        </label>
+        
+        <label>
+          Return By:
+          <input type="date" [(ngModel)]="newReservation.returnBy" name="returnBy" required />
+        </label>
+  
+        <div class="modal-footer">
+          <button type="submit" [disabled]="reservationForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

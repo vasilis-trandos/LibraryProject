@@ -1,0 +1,40 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Book</h2>
+        <button (click)="closeModal()" class="close-button">X</button>
+      </div>
+  
+      <form (ngSubmit)="saveBook()" #bookForm="ngForm" class="add-form">
+        <label>
+          Name:
+          <input [(ngModel)]="newBook.name" name="name" required minlength="3" maxlength="15" />
+        </label>
+        <label>
+          Year:
+          <input type="number" [(ngModel)]="newBook.year" name="year" required min="1900" max="2024" />
+        </label>
+        <label>
+          Type:
+          <select [(ngModel)]="newBook.type" name="type" required>
+            <option value="Fiction">Fiction</option>
+            <option value="Non-Fiction">Non-Fiction</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Biography">Biography</option>
+          </select>
+        </label>
+        <label>
+          Author:
+          <input [(ngModel)]="newBook.author" name="author" required minlength="3" maxlength="15" />
+        </label>
+        <label>
+          Created On:
+          <input type="date" [(ngModel)]="newBook.createdOn" name="createdOn" required />
+        </label>
+        <div class="modal-footer">
+          <button type="submit" [disabled]="bookForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

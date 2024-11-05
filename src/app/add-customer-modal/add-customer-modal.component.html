@@ -1,0 +1,47 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Customer</h2>
+        <button (click)="closeModal()" class="close-button">X</button>
+      </div>
+  
+      <form (ngSubmit)="saveCustomer()" #customerForm="ngForm" class="add-form">
+        <label>
+          Name:
+          <input [(ngModel)]="newCustomer.name" name="name" required minlength="3" maxlength="15" />
+          <div *ngIf="customerForm.controls['name']?.invalid && customerForm.controls['name']?.touched" class="error">
+            Name must be between 3 and 15 characters.
+          </div>
+        </label>
+  
+        <label>
+          Surname:
+          <input [(ngModel)]="newCustomer.surname" name="surname" required minlength="3" maxlength="15" />
+          <div *ngIf="customerForm.controls['surname']?.invalid && customerForm.controls['surname']?.touched" class="error">
+            Surname must be between 3 and 15 characters.
+          </div>
+        </label>
+  
+        <label>
+          Email:
+          <input [(ngModel)]="newCustomer.email" name="email" required email />
+          <div *ngIf="customerForm.controls['email']?.invalid && customerForm.controls['email']?.touched" class="error">
+            Invalid email format.
+          </div>
+        </label>
+  
+        <label>
+          Phone Number:
+          <input [(ngModel)]="newCustomer.phoneNumber" name="phoneNumber" required minlength="8" />
+          <div *ngIf="customerForm.controls['phoneNumber']?.invalid && customerForm.controls['phoneNumber']?.touched" class="error">
+            Phone number must be at least 8 characters.
+          </div>
+        </label>
+  
+        <div class="modal-footer">
+          <button type="submit" [disabled]="customerForm.invalid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

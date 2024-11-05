@@ -1,5 +1,9 @@
 <div class="customers-list">
   <h2>Customers List</h2>
+  
+  <!-- Κουμπί για προσθήκη νέου πελάτη -->
+  <button (click)="addCustomer()" class="add-button">Add New</button>
+  
   <table>
     <thead>
       <tr>
@@ -17,11 +21,27 @@
         <td>{{ customer.email }}</td>
         <td>{{ customer.phoneNumber }}</td>
         <td class="actions">
-          <button class="view-button" (click)="viewCustomer(customer)">View</button>
-          <button class="edit-button" (click)="editCustomer(customer)">Edit</button>
-          <button class="delete-button" (click)="deleteCustomer(customer)">Delete</button>
+          <button (click)="viewCustomer(customer)" class="view-button">View</button>
+          <button (click)="editCustomer(customer)" class="edit-button">Edit</button>
+          <button (click)="deleteCustomer(customer)" class="delete-button">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <!-- Modal για Προβολή Πελάτη -->
+  <app-view-customer-modal *ngIf="isModalOpen && selectedCustomer" 
+                           [customer]="selectedCustomer" 
+                           (close)="closeModal()"></app-view-customer-modal>
+
+  <!-- Modal για Επεξεργασία Πελάτη -->
+  <app-edit-customer-modal *ngIf="isEditModalOpen && selectedCustomerForEdit" 
+                           [customer]="selectedCustomerForEdit" 
+                           (save)="saveCustomerChanges($event)" 
+                           (close)="closeEditModal()"></app-edit-customer-modal>
+
+  <!-- Modal για Προσθήκη Νέου Πελάτη -->
+  <app-add-customer-modal *ngIf="isAddModalOpen" 
+                          (save)="saveNewCustomer($event)" 
+                          (close)="closeAddModal()"></app-add-customer-modal>
 </div>

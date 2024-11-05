@@ -1,0 +1,31 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Edit Reservation</h2>
+        <button (click)="closeModal()" class="close-button">X</button>
+      </div>
+      
+      <form (ngSubmit)="saveChanges()" class="edit-form">
+        <label>
+          Book Name:
+          <input [(ngModel)]="editedReservation.book.name" name="bookName" readonly />
+        </label>
+        <label>
+          Customer Name:
+          <input [(ngModel)]="editedReservation.customer.name" name="customerName" readonly />
+        </label>
+        <label>
+          Status:
+          <input [(ngModel)]="editedReservation.status" name="status" required />
+        </label>
+        <label>
+          Return By:
+          <input type="date" [(ngModel)]="editedReservation.returnBy" name="returnBy" required />
+        </label>
+        <div class="modal-footer">
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

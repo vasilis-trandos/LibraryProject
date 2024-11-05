@@ -5,6 +5,6 @@ export interface Book {
     type: string;
     author: string;
     available: string;   
-    createdOn: string; 
+    createdOn: string;
   }
   

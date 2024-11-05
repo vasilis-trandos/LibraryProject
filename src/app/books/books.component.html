@@ -1,5 +1,9 @@
 <div class="books-list">
   <h2>Books List</h2>
+
+  <!-- Κουμπί για προσθήκη νέου βιβλίου -->
+  <button (click)="addBook()" class="add-button">Add New Book</button>
+
   <table>
     <thead>
       <tr>
@@ -28,4 +32,15 @@
       </tr>
     </tbody>
   </table>
+
+  <app-view-book-modal *ngIf="isModalOpen && selectedBook" [book]="selectedBook" (close)="closeModal()"></app-view-book-modal>
+
+  <app-edit-book-modal *ngIf="isEditModalOpen && selectedBookForEdit" 
+                       [book]="selectedBookForEdit" 
+                       (save)="saveBookChanges($event)" 
+                       (close)="closeEditModal()"></app-edit-book-modal>
+
+  <app-add-book-modal *ngIf="isAddModalOpen" 
+                      (save)="saveNewBook($event)" 
+                      (close)="closeAddModal()"></app-add-book-modal>
 </div>

@@ -2,6 +2,6 @@ export interface Customer {
     name: string;
     surname: string;
     email: string;
-    phoneNumber: number;
+    phoneNumber: string;
     _id: string;
 }

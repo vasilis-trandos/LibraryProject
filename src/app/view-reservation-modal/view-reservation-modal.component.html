@@ -1,0 +1,15 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <button (click)="closeModal()">X</button> <!-- Κουμπί για το κλείσιμο του modal -->
+      <h2>Reservation Details</h2>
+      <p><strong>Book:</strong> {{ reservation.book.name }} ({{ reservation.book.year }})</p>
+      <p><strong>Author:</strong> {{ reservation.book.author }}</p>
+      <p><strong>Customer:</strong> {{ reservation.customer.name }} {{ reservation.customer.surname }}</p>
+      <p><strong>Email:</strong> {{ reservation.customer.email }}</p>
+      <p><strong>Phone Number:</strong> {{ reservation.customer.phoneNumber }}</p>
+      <p><strong>Reserved On:</strong> {{ reservation.reservedOn | date }}</p>
+      <p><strong>Return By:</strong> {{ reservation.returnBy | date }}</p>
+      <p><strong>Status:</strong> {{ reservation.status }}</p>
+    </div>
+  </div>
+  

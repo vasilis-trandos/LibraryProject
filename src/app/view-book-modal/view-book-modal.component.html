@@ -1,0 +1,12 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+      <button (click)="closeModal()">X</button> <!-- Κουμπί για το κλείσιμο του modal -->
+      <h2>{{ book.name }}</h2>
+      <p><strong>Author:</strong> {{ book.author }}</p>
+      <p><strong>Year:</strong> {{ book.year }}</p>
+      <p><strong>Type:</strong> {{ book.type }}</p>
+      <p><strong>Created On:</strong> {{ book.createdOn | date }}</p>
+      <p><strong>Availability:</strong> {{ book.available }}</p>
+    </div>
+  </div>
+  

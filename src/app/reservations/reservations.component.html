@@ -1,31 +1,42 @@
 <div class="reservations-list">
   <h2>Reservations List</h2>
+  <button (click)="addReservation()" class="add-button">Add New Reservation</button>
+
   <table>
     <thead>
       <tr>
         <th>Book Name</th>
-        <th>Reservation ID</th>
         <th>Customer Name</th>
         <th>Status</th>
-        <th>Reserved On</th>
         <th>Return By</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let reservation of reservations">
-        <td>{{ reservation.book.name }} ({{ reservation.book.year }})</td>
-        <td>{{ reservation._id }}</td>
-        <td>{{ reservation.customer.name }} {{ reservation.customer.surname }}</td>
+        <td>{{ reservation.book.name }}</td>
+        <td>{{ reservation.customer.name }}</td>
         <td>{{ reservation.status }}</td>
-        <td class="date-cell">{{ reservation.reservedOn | date }}</td>
-        <td class="date-cell">{{ reservation.returnBy | date }}</td>
+        <td>{{ reservation.returnBy | date }}</td>
         <td class="actions">
-          <button class="view-button" (click)="viewReservation(reservation)">View</button>
-          <button class="edit-button" (click)="editReservation(reservation)">Edit</button>
-          <button class="delete-button" (click)="deleteReservation(reservation)">Delete</button>
+          <button (click)="viewReservation(reservation)">View</button>
+          <button (click)="editReservation(reservation)">Edit</button>
+          <button (click)="deleteReservation(reservation)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <app-view-reservation-modal *ngIf="isModalOpen && selectedReservation" 
+                              [reservation]="selectedReservation" 
+                              (close)="closeModal()"></app-view-reservation-modal>
+
+  <app-edit-reservation-modal *ngIf="isEditModalOpen && selectedReservationForEdit" 
+                              [reservation]="selectedReservationForEdit" 
+                              (save)="saveReservationChanges($event)" 
+                              (close)="closeEditModal()"></app-edit-reservation-modal>
+
+  <app-add-reservation-modal *ngIf="isAddModalOpen" 
+                             (save)="saveNewReservation($event)" 
+                             (close)="closeAddModal()"></app-add-reservation-modal>
 </div>
