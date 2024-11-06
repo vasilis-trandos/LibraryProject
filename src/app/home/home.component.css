@@ -54,11 +54,13 @@ h2 {
   padding: 15px; 
   height: auto; 
   margin: 0 auto; 
+  border: 2px solid transparent; /* Προστέθηκε το περίγραμμα με αρχικό χρώμα */
 }
 
 .book-card:hover {
   transform: translateY(-6px); 
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
+  border-color: #d4af37; /* Χρυσό περίγραμμα κατά το hover */
 }
 
 .book-image {
