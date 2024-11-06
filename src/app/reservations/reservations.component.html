@@ -1,5 +1,12 @@
 <div class="reservations-list">
-  <h2>Reservations List</h2>
+  <h2>Reservations List 
+    <input 
+      type="text" 
+      placeholder="Search book..." 
+      (input)="updateSearch($event)"
+      class="search-box"
+    />
+  </h2>
   <button (click)="addReservation()" class="add-button">Add New Reservation</button>
 
   <table>
@@ -13,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let reservation of reservations">
+      <tr *ngFor="let reservation of filteredReservations">
         <td>{{ reservation.book.name }}</td>
         <td>{{ reservation.customer.name }}</td>
         <td>{{ reservation.status }}</td>

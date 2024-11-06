@@ -11,18 +11,18 @@ import { Book } from '../books/books';
   styleUrls: ['./edit-book-modal.component.css']
 })
 export class EditBookModalComponent {
-  @Input() book!: Book; // Λαμβάνει το βιβλίο από το BooksComponent
+  @Input() book!: Book; 
   @Output() save = new EventEmitter<Book>();
   @Output() close = new EventEmitter<void>();
 
-  editedBook: Book = { ...this.book }; // Αντιγραφή του βιβλίου για να κάνουμε αλλαγές
+  editedBook: Book = { ...this.book }; 
 
   ngOnChanges() {
-    this.editedBook = { ...this.book }; // Ανανεώνουμε την αντιγραφή κάθε φορά που αλλάζει το input
+    this.editedBook = { ...this.book }; 
   }
 
   saveChanges() {
-    this.save.emit(this.editedBook); // Εκπομπή του ενημερωμένου βιβλίου
+    this.save.emit(this.editedBook); 
   }
 
   closeModal() {
