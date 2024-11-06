@@ -16,21 +16,43 @@ import { AddReservationModalComponent } from '../add-reservation-modal/add-reser
 export class ReservationsComponent implements OnInit {
   httpClient = inject(HttpClient);
   reservations: Reservation[] = [];
+  filteredReservations: Reservation[] = [];  
   selectedReservation: Reservation | null = null;
   isModalOpen = false;
   selectedReservationForEdit: Reservation | null = null;
   isEditModalOpen = false;
   isAddModalOpen = false;
+  searchQuery: string = '';  
 
   ngOnInit(): void {
     this.fetchReservations();
   }
 
+  
   fetchReservations() {
     this.httpClient.get<Reservation[]>('https://book-api-bx2r.onrender.com/reservations')
       .subscribe((data: Reservation[]) => {
         this.reservations = data;
+        this.filteredReservations = [...this.reservations]; 
       });
+  }
+
+  
+  filterReservations() {
+    const query = this.searchQuery.toLowerCase();
+
+    this.filteredReservations = this.reservations.filter(reservation => 
+      reservation.book.name.toLowerCase().includes(query) ||
+      reservation.customer.name.toLowerCase().includes(query) ||
+      reservation.status.toLowerCase().includes(query)
+    );
+  }
+
+  
+  updateSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchQuery = input.value;
+    this.filterReservations(); 
   }
 
   viewReservation(reservation: Reservation) {
@@ -51,7 +73,10 @@ export class ReservationsComponent implements OnInit {
     this.isAddModalOpen = false;
     this.httpClient.post<Reservation>('https://book-api-bx2r.onrender.com/reservations', newReservation)
       .subscribe((createdReservation: Reservation) => {
+        console.log('New reservation created:', createdReservation); 
         this.reservations.push(createdReservation);
+        this.filteredReservations = [...this.reservations]; 
+        this.filterReservations(); 
       });
   }
 
@@ -61,6 +86,7 @@ export class ReservationsComponent implements OnInit {
 
   saveReservationChanges(updatedReservation: Reservation) {
     this.reservations = this.reservations.map(r => r._id === updatedReservation._id ? updatedReservation : r);
+    this.filteredReservations = [...this.reservations]; 
     this.isEditModalOpen = false;
 
     this.httpClient.put(`https://book-api-bx2r.onrender.com/reservations/${updatedReservation._id}`, updatedReservation)
@@ -83,6 +109,7 @@ export class ReservationsComponent implements OnInit {
         .subscribe(() => {
           console.log("Reservation deleted:", reservation);
           this.reservations = this.reservations.filter(r => r._id !== reservation._id);
+          this.filteredReservations = [...this.reservations]; 
         });
     }
   }

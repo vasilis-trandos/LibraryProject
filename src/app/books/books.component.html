@@ -1,9 +1,16 @@
 <div class="books-list">
-  <h2>Books List</h2>
-
-  <!-- Κουμπί για προσθήκη νέου βιβλίου -->
+  <h2>Books List
+   <input 
+   type="text" 
+   placeholder="Search book..." 
+   (input)="updateSearch($event)"
+    class="search-box"
+  />
+  </h2>
+  
   <button (click)="addBook()" class="add-button">Add New Book</button>
 
+  
   <table>
     <thead>
       <tr>
@@ -13,17 +20,37 @@
         <th>Type</th>
         <th>Author</th>
         <th>Created On</th>
+        <th class="available-header">
+          Available
+          <button id="filterButton" (click)="toggleDropdown()" class="filter-button">Filter</button>
+         
+          <div 
+            *ngIf="dropdownVisible" 
+            class="filter-dropdown" 
+            id="filterDropdown"
+            [class.show]="dropdownVisible"
+            (mouseenter)="handleMouseEnter()"
+            (mouseleave)="handleMouseLeave()"
+          >
+            <button (click)="filterBooks('all')">Show All</button>
+            <button (click)="filterBooks('available')">Show Available</button>
+            <button (click)="filterBooks('unavailable')">Show Unavailable</button>
+          </div>
+        </th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let book of books">
+      <tr *ngFor="let book of filteredBooks">
         <td><img [src]="book.imageUrl" alt="{{ book.name }} image" width="50" height="75"></td>
         <td>{{ book.name }}</td>
         <td>{{ book.year }}</td>
         <td>{{ book.type }}</td>
         <td>{{ book.author }}</td>
         <td class="date-cell">{{ book.createdOn | date }}</td>
+        <td [ngClass]="book.available ? 'available-yes' : 'available-no'">
+          {{ book.available ? 'Yes' : 'No' }}
+        </td>
         <td class="actions">
           <button (click)="viewBook(book)">View</button>
           <button (click)="editBook(book)">Edit</button>
@@ -34,12 +61,10 @@
   </table>
 
   <app-view-book-modal *ngIf="isModalOpen && selectedBook" [book]="selectedBook" (close)="closeModal()"></app-view-book-modal>
-
   <app-edit-book-modal *ngIf="isEditModalOpen && selectedBookForEdit" 
                        [book]="selectedBookForEdit" 
                        (save)="saveBookChanges($event)" 
                        (close)="closeEditModal()"></app-edit-book-modal>
-
   <app-add-book-modal *ngIf="isAddModalOpen" 
                       (save)="saveNewBook($event)" 
                       (close)="closeAddModal()"></app-add-book-modal>

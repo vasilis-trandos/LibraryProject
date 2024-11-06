@@ -1,44 +1,74 @@
-/* Ρυθμίσεις για το Κεντρικό Κορμό */
+
 main {
-  background-color: #f5f5f5; /* Ανοιχτό γκρι φόντο για αντίθεση */
+  background-color: #f5f5f5; 
   padding: 20px;
   font-family: 'Roboto', sans-serif;
-  color: #333333; /* Σκούρο γκρι για το κείμενο */
+  color: #333333; 
   line-height: 1.6;
 }
 
-/* Στυλ για Τίτλους */
-main h1, main h2, main h3 {
-  color: #1e2a38; /* Σκούρο μπλε όπως το header και footer */
-  margin-bottom: 15px;
+
+h2 {
+  background-color: #f4f4f4; 
+  padding: 15px 30px; 
+  text-align: left;
+  font-size: 1.5rem; 
   font-weight: bold;
+  color: #333333; 
+  margin-top: 0px; 
+  margin-bottom: 0px;
+  border-bottom: 3px solid #d4af37; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-/* Στυλ για Κουμπιά */
+.search-box {
+  padding: 8px ;
+  font-size: 1rem;
+  width: 200px; 
+  border: 2px solid #ccc; 
+  border-radius: 30px; 
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9; 
+  color: #333; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+
+.search-box:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); 
+  background-color: #ffffff; 
+}
+
+
 button {
-  background-color: #d4af37; /* Χρυσό για έμφαση */
-  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
+  background-color: #d4af37; 
+  color: #1e2a38; 
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: 10px; /* Προσθέτει κενό μεταξύ των κουμπιών */
+  margin-right: 10px; 
 }
 
 button:last-child {
-  margin-right: 0; /* Για να μην υπάρχει περιττό κενό στο τελευταίο κουμπί */
+  margin-right: 0; 
 }
 
 button:hover {
-  background-color: #1e2a38; /* Σκούρο μπλε στο hover */
-  color: #ffffff; /* Λευκό κείμενο για αντίθεση */
+  background-color: #1e2a38; 
+  color: #ffffff; 
 }
 
-/* Στυλ για Κάρτες Περιεχομένου */
+
 .card {
-  background-color: #ffffff; /* Λευκό φόντο για κάρτες */
+  background-color: #ffffff; 
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -51,19 +81,19 @@ button:hover {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Σύνδεσμοι εντός του Κεντρικού Κορμού */
+
 main a {
-  color: #1e2a38; /* Σκούρο μπλε */
+  color: #1e2a38;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 main a:hover {
-  color: #d4af37; /* Χρυσό στο hover */
+  color: #d4af37; 
 }
 
-/* Στυλ για Πίνακες */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -78,15 +108,15 @@ table th, table td {
 }
 
 table th {
-  background-color: #1e2a38; /* Σκούρο μπλε για κεφαλίδες */
+  background-color: #1e2a38; 
   color: #ffffff;
 }
 
 table tr:nth-child(even) {
-  background-color: #f5f5f5; /* Ανοιχτό γκρι */
+  background-color: #f5f5f5; 
 }
 
-/* Responsive Ρυθμίσεις για Κεντρικό Κορμό */
+
 @media (max-width: 768px) {
   .card {
       padding: 15px;

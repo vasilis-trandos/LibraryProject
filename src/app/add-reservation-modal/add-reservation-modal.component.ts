@@ -29,22 +29,27 @@ export class AddReservationModalComponent implements OnInit {
     this.fetchCustomers();
   }
 
+  
   fetchBooks() {
     this.http.get('https://book-api-bx2r.onrender.com/books').subscribe((data: any) => {
-      this.books = data;
+      
+      this.books = data.filter((book: any) => book.available);
     });
   }
 
+  
   fetchCustomers() {
     this.http.get('https://book-api-bx2r.onrender.com/customers').subscribe((data: any) => {
       this.customers = data;
     });
   }
 
+  
   saveReservation() {
     this.save.emit(this.newReservation);
   }
 
+  
   closeModal() {
     this.close.emit();
   }

@@ -1,160 +1,105 @@
-/* Ρυθμίσεις για το Κεντρικό Κορμό */
-main {
-  background-color: #f5f5f5; /* Ανοιχτό γκρι φόντο για αντίθεση */
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
-  color: #333333; /* Σκούρο γκρι για το κείμενο */
-  line-height: 1.6;
-}
-
-/* Στυλ για Τίτλους */
-main h1, main h2, main h3 {
-  color: #1e2a38; /* Σκούρο μπλε όπως το header και footer */
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* Στυλ για Κουμπιά */
-button {
-  background-color: #d4af37; /* Χρυσό για έμφαση */
-  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: 10px; /* Προσθέτει κενό μεταξύ των κουμπιών */
-}
-
-button:last-child {
-  margin-right: 0; /* Για να μην υπάρχει περιττό κενό στο τελευταίο κουμπί */
-}
-
-button:hover {
-  background-color: #1e2a38; /* Σκούρο μπλε στο hover */
-  color: #ffffff; /* Λευκό κείμενο για αντίθεση */
-}
-
-/* Στυλ για Κάρτες Περιεχομένου */
-.card {
-  background-color: #ffffff; /* Λευκό φόντο για κάρτες */
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-  transition: box-shadow 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Σύνδεσμοι εντός του Κεντρικού Κορμού */
-main a {
-  color: #1e2a38; /* Σκούρο μπλε */
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-main a:hover {
-  color: #d4af37; /* Χρυσό στο hover */
-}
-
-/* Στυλ για Πίνακες */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  font-size: 1rem;
-}
-
-table th, table td {
-  border: 1px solid #ddd;
-  padding: 12px;
+h2 {
+  background-color: #f4f4f4; 
+  padding: 15px 30px; 
   text-align: left;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  color: #333333;
+  margin-top: 0px; 
+  margin-bottom: 0px;
+  border-bottom: 3px solid #d4af37; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
 }
 
-table th {
-  background-color: #1e2a38; /* Σκούρο μπλε για κεφαλίδες */
-  color: #ffffff;
+.search-box {
+  padding: 10px;
+  font-size: 1.1rem;
+  width: 250px; 
+  border: 2px solid #ccc; 
+  border-radius: 30px; 
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9; 
+  color: #333; 
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
-table tr:nth-child(even) {
-  background-color: #f5f5f5; /* Ανοιχτό γκρι */
+.search-box:focus {
+  border-color: #d4af37; 
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4); 
+  background-color: #ffffff; 
 }
 
-/* Ρυθμίσεις για Κουμπιά Φίλτρου */
-.filter-container {
-  display: flex;                /* Use flexbox for alignment */
-  justify-content: flex-end;    /* Align to the right */
-  margin-bottom: 10px;         /* Space below the filter container */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 στήλες */
+  gap: 30px; 
+  padding: 20px;
+  background-color: #f4f4f4; 
 }
 
-.filter-button {
-  background-color: #d4af37;    /* Gold background */
-  color: #1e2a38;               /* Dark blue text */
-  border: none;                 /* No border */
-  padding: 8px 15px;           /* Padding for button */
-  border-radius: 5px;          /* Rounded corners */
-  font-size: 0.9rem;            /* Smaller font size for discretion */
-  cursor: pointer;              /* Pointer on hover */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+.book-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px; 
+  overflow: hidden; 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); 
+  transition: all 0.3s ease; 
+  cursor: pointer;
+  width: 220px; /* Αυξήθηκε το πλάτος */
+  padding: 15px; 
+  height: auto; 
+  margin: 0 auto; 
 }
 
-.filter-dropdown {
-  position: absolute;           /* Position absolutely for dropdown */
-  right: 0;                    /* Align to the right of the container */
-  background-color: #ffffff;   /* White background */
-  border: 1px solid #ddd;      /* Light grey border */
-  border-radius: 5px;          /* Rounded corners */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-top: 10px;            /* Space above dropdown (adjust as needed) */
-  z-index: 1000;               /* Ensure dropdown appears above other elements */
+.book-card:hover {
+  transform: translateY(-6px); 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
 }
 
-.filter-dropdown button {
-  display: block;               /* Stack buttons vertically */
-  width: 100%;                 /* Full width of dropdown */
-  padding: 8px;                /* Padding for buttons */
-  text-align: left;            /* Align text to the left */
-  background: none;            /* No background */
-  border: none;                /* No border */
-  color: #1e2a38;              /* Dark blue text */
-  font-size: 0.85rem;          /* Slightly smaller font for dropdown options */
-  cursor: pointer;             /* Pointer on hover */
-  transition: background-color 0.3s ease; /* Smooth background change */
+.book-image {
+  width: 100%;
+  height: 220px; /* Αυξήθηκε το ύψος */
+  object-fit: cover; 
+  transition: transform 0.3s ease-in-out;
+  border-bottom: 1px solid #e0e0e0; 
 }
 
-.filter-dropdown button:hover {
-  background-color: #f5f5f5;   /* Light grey background on hover */
+.book-card:hover .book-image {
+  transform: scale(1.05); 
 }
 
-/* Ρυθμίσεις για Κεφαλίδες Διαθέσιμων */
-.available-header {
-  display: flex;                /* Use flexbox for alignment */
-  justify-content: space-between; /* Space between the text and button */
-  align-items: center;         /* Center vertically */
+.book-name {
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 1.1rem; /* Αυξήθηκε το μέγεθος γραμματοσειράς */
+  font-weight: bold;
+  color: #333333; 
+  text-transform: capitalize; 
+  background-color: #f8f8f8; 
+  width: 100%;
+  border-top: 1px solid #e0e0e0; 
+  margin-top: 10px; 
 }
 
-.available-header button {
-  margin-left: 10px;           /* Space between "Available" text and button */
+@media (max-width: 1024px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 στήλες για μεσαίες οθόνες */
+  }
 }
 
-/* Responsive Ρυθμίσεις για Κεντρικό Κορμό */
 @media (max-width: 768px) {
-  .card {
-      padding: 15px;
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 στήλες για μικρές οθόνες */
   }
+}
 
-  table, table th, table td {
-      font-size: 0.9rem;
-  }
-
-  button {
-      padding: 8px 15px;
-      font-size: 0.9rem;
+@media (max-width: 480px) {
+  .books-grid {
+    grid-template-columns: 1fr; /* 1 στήλη για πολύ μικρές οθόνες */
   }
 }

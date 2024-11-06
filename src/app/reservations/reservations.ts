@@ -9,4 +9,5 @@ export interface Reservation {
     returnBy: string;
     status: string;
     __v: number;
+    available: string;
 }

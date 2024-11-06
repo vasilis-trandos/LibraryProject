@@ -11,18 +11,18 @@ import { Reservation } from '../reservations/reservations';
   styleUrls: ['./edit-reservation-modal.component.css']
 })
 export class EditReservationModalComponent {
-  @Input() reservation!: Reservation; // Λαμβάνει την κράτηση από το ReservationsComponent
+  @Input() reservation!: Reservation; 
   @Output() save = new EventEmitter<Reservation>();
   @Output() close = new EventEmitter<void>();
 
-  editedReservation: Reservation = { ...this.reservation }; // Αντιγραφή της κράτησης για επεξεργασία
+  editedReservation: Reservation = { ...this.reservation }; 
 
   ngOnChanges() {
-    this.editedReservation = { ...this.reservation }; // Ανανεώνουμε την αντιγραφή κάθε φορά που αλλάζει το input
+    this.editedReservation = { ...this.reservation }; 
   }
 
   saveChanges() {
-    this.save.emit(this.editedReservation); // Εκπομπή των ενημερωμένων δεδομένων
+    this.save.emit(this.editedReservation); 
   }
 
   closeModal() {

@@ -1,37 +1,18 @@
 <div class="home-books-list">
-  <h2>Home Books List</h2>
+  <h2>
+    Home Books List
+    <input 
+      type="text" 
+      placeholder="Search book..." 
+      (input)="updateSearch($event)"
+      class="search-box"
+    />
+  </h2>
   
-  <table>
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Name</th>
-        <th>
-          <div class="available-header">
-            Available 
-            <button id="filterButton" (click)="toggleDropdown()" class="filter-button">Filter</button>
-            <!-- Filter Dropdown -->
-            <div 
-              *ngIf="dropdownVisible" 
-              class="filter-dropdown" 
-              id="filterDropdown"
-              (mouseenter)="handleMouseEnter()"
-              (mouseleave)="handleMouseLeave()"
-            >
-              <button (click)="filterBooks('all')">Show All</button>
-              <button (click)="filterBooks('available')">Show Available</button>
-              <button (click)="filterBooks('unavailable')">Show Unavailable</button>
-            </div>
-          </div>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let book of filteredBooks">
-        <td><img [src]="book.imageUrl" alt="{{ book.name }} image" width="50" height="75"></td>
-        <td>{{ book.name }}</td>
-        <td>{{ book.available }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="books-grid">
+    <div class="book-card" *ngFor="let book of filterBooks()">
+      <img [src]="book.imageUrl" alt="{{ book.name }} image" class="book-image">
+      <div class="book-name">{{ book.name }}</div>
+    </div>
+  </div>
 </div>

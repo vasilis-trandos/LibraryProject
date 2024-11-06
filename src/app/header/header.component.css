@@ -1,26 +1,26 @@
-/* Βασικές Ρυθμίσεις για το Header */
+
 header {
-  background-color: #1e2a38; /* Σκούρο μπλε φόντο */
-  border-bottom: 3px solid #d4af37; /* Χρυσό κάτω περίγραμμα */
+  background-color: #1e2a38;
+  border-bottom: 3px solid #d4af37;
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); /* Ελαφριά σκιά για βάθος */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2); 
 }
 
-/* Στυλ Τίτλου */
+
 header h1 {
-  color: #ffffff; /* Λευκό για αντίθεση */
+  color: #ffffff; 
   font-size: 1.8rem;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   font-weight: bold;
 }
 
-/* Κουμπιά Πλοήγησης */
+
 nav a {
-  color: #ffffff; /* Λευκό για αντίθεση */
+  color: #ffffff;
   font-size: 1rem;
   text-decoration: none;
   margin: 0 10px;
@@ -30,13 +30,13 @@ nav a {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Εφέ Hover */
+
 nav a:hover {
-  background-color: #d4af37; /* Χρυσό για να ξεχωρίζει */
-  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
+  background-color: #d4af37; 
+  color: #1e2a38; 
 }
 
-/* Responsive Στυλ */
+
 @media (max-width: 768px) {
   header {
       flex-direction: column;

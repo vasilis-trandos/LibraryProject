@@ -1,8 +1,15 @@
 <div class="customers-list">
-  <h2>Customers List</h2>
+  <h2>Customers List
+    <input 
+      type="text" 
+      placeholder="Search customer..." 
+      (input)="updateSearch($event)"
+      class="search-box"
+    />
+  </h2>
   
-  <!-- Κουμπί για προσθήκη νέου πελάτη -->
-  <button (click)="addCustomer()" class="add-button">Add New</button>
+  
+  <button (click)="addCustomer()" class="add-button">Add New Customer</button>
   
   <table>
     <thead>
@@ -15,7 +22,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let customer of customers">
+      <tr *ngFor="let customer of filteredCustomers">
         <td>{{ customer.name }}</td>
         <td>{{ customer.surname }}</td>
         <td>{{ customer.email }}</td>
@@ -29,18 +36,18 @@
     </tbody>
   </table>
 
-  <!-- Modal για Προβολή Πελάτη -->
+ 
   <app-view-customer-modal *ngIf="isModalOpen && selectedCustomer" 
                            [customer]="selectedCustomer" 
                            (close)="closeModal()"></app-view-customer-modal>
 
-  <!-- Modal για Επεξεργασία Πελάτη -->
+  
   <app-edit-customer-modal *ngIf="isEditModalOpen && selectedCustomerForEdit" 
                            [customer]="selectedCustomerForEdit" 
                            (save)="saveCustomerChanges($event)" 
                            (close)="closeEditModal()"></app-edit-customer-modal>
 
-  <!-- Modal για Προσθήκη Νέου Πελάτη -->
+  
   <app-add-customer-modal *ngIf="isAddModalOpen" 
                           (save)="saveNewCustomer($event)" 
                           (close)="closeAddModal()"></app-add-customer-modal>

@@ -1,11 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Εισαγωγή του CommonModule
+import { CommonModule } from '@angular/common'; 
 import { Reservation } from '../reservations/reservations';
 
 @Component({
   selector: 'app-view-reservation-modal',
   standalone: true,
-  imports: [CommonModule], // Προσθήκη του CommonModule στα imports
+  imports: [CommonModule], 
   templateUrl: './view-reservation-modal.component.html',
   styleUrls: ['./view-reservation-modal.component.css']
 })
