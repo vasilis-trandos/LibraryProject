@@ -11,11 +11,20 @@ header {
 
 /* Στυλ Τίτλου */
 header h1 {
-  color: #ffffff; /* Λευκό για αντίθεση */
+  color: #d4af37; /* Χρυσό χρώμα για να ταιριάζει με το footer */
   font-size: 1.8rem;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   font-weight: bold;
+}
+
+/* Στυλ για το Clickable Τίτλο */
+.title-link {
+  text-decoration: none; /* Αφαιρεί την υπογράμμιση του συνδέσμου */
+}
+
+.title-link h1 {
+  color: #d4af37; /* Χρυσό χρώμα για τον τίτλο */
 }
 
 /* Κουμπιά Πλοήγησης */

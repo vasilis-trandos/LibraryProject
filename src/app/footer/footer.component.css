@@ -1,37 +1,53 @@
-/* Βασικές Ρυθμίσεις για το Footer */
+/* Στυλ για το Footer */
 footer {
+  width: 100%;
   background-color: #1e2a38; /* Σκούρο μπλε φόντο */
-  border-top: 3px solid #d4af37; /* Χρυσό πάνω περίγραμμα */
+  border-top: 3px solid #d4af37; /* Χρυσό περίγραμμα στο πάνω μέρος */
   padding: 20px 0;
   text-align: center;
   color: #ffffff; /* Λευκό κείμενο */
   font-family: 'Roboto', sans-serif;
-  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2); /* Ελαφριά σκιά στο πάνω μέρος */
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2); /* Ελαφριά σκιά */
+  margin: 0;
 }
 
-/* Στυλ για Σύνδεσμους στο Footer */
-footer a {
-  color: #ffffff; /* Λευκό για αντίθεση */
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 1rem;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 8px 15px;
-  border-radius: 20px;
+/* Στυλ για τον τίτλο του Footer */
+footer h3 {
+  font-size: 1.5rem;
+  color: #d4af37; /* Χρυσό για τον τίτλο */
+  margin: 0;
+  padding-bottom: 5px;
 }
 
-/* Εφέ Hover στους Σύνδεσμους */
-footer a:hover {
-  background-color: #d4af37; /* Χρυσό */
-  color: #1e2a38; /* Σκούρο μπλε για αντίθεση */
+/* Στυλ για το κείμενο κάτω από τον τίτλο */
+footer p {
+  font-size: 0.9rem; /* Μικρότερη γραμματοσειρά */
+  color: #ffffff; /* Λευκό κείμενο */
+  margin: 0; /* Αφαιρεί περιθώριο */
+  opacity: 0.8; /* Ελαφρώς διάφανο για διακριτικότητα */
 }
 
-/* Responsive Στυλ */
-@media (max-width: 768px) {
-  footer a {
-      display: block;
-      margin: 5px 0;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-  }
+/* Στυλ για το Κουμπί Μετακίνησης στην Κορυφή */
+.scroll-to-top {
+  background-color: #d4af37; /* Χρυσό φόντο */
+  color: #1e2a38; /* Σκούρο μπλε κείμενο */
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px; /* Απόσταση από το κάτω μέρος της σελίδας */
+  right: 20px; /* Απόσταση από τη δεξιά πλευρά της σελίδας */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Σκιά */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #1e2a38; /* Αλλάζει σε σκούρο μπλε στο hover */
+  color: #ffffff; /* Λευκό χρώμα για το βελάκι */
 }
