@@ -26,22 +26,11 @@
         <td>{{ reservation.status }}</td>
         <td>{{ reservation.returnBy | date }}</td>
         <td class="actions">
-          <button (click)="viewReservation(reservation)">View</button>
-          <button (click)="editReservation(reservation)">Edit</button>
-          <button (click)="deleteReservation(reservation)">Delete</button>
+          <button (click)="completeReservation(reservation)">Complete</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <app-view-reservation-modal *ngIf="isModalOpen && selectedReservation" 
-                              [reservation]="selectedReservation" 
-                              (close)="closeModal()"></app-view-reservation-modal>
-
-  <app-edit-reservation-modal *ngIf="isEditModalOpen && selectedReservationForEdit" 
-                              [reservation]="selectedReservationForEdit" 
-                              (save)="saveReservationChanges($event)" 
-                              (close)="closeEditModal()"></app-edit-reservation-modal>
 
   <app-add-reservation-modal *ngIf="isAddModalOpen" 
                              (save)="saveNewReservation($event)" 
