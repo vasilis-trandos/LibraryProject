@@ -21,10 +21,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let reservation of filteredReservations">
-        <td>{{ reservation.book.name }}</td>
+        <td>{{ reservation.book.name }}</td> 
         <td>{{ reservation.customer.name }}</td>
         <td>{{ reservation.status }}</td>
-        <td>{{ reservation.returnBy | date }}</td>
+        <td>{{ reservation.returnBy | date:'shortDate' }}</td>
         <td class="actions">
           <button (click)="completeReservation(reservation)">Complete</button>
         </td>
@@ -32,7 +32,9 @@
     </tbody>
   </table>
 
-  <app-add-reservation-modal *ngIf="isAddModalOpen" 
-                             (save)="saveNewReservation($event)" 
-                             (close)="closeAddModal()"></app-add-reservation-modal>
+  <app-add-reservation-modal 
+    *ngIf="isAddModalOpen" 
+    (save)="saveNewReservation($event)" 
+    (close)="closeAddModal()">
+  </app-add-reservation-modal>
 </div>

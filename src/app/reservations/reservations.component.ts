@@ -25,7 +25,7 @@ export class ReservationsComponent implements OnInit {
   fetchReservations() {
     this.httpClient.get<Reservation[]>('https://book-api-bx2r.onrender.com/reservations')
       .subscribe((data: Reservation[]) => {
-        this.reservations = data;
+        this.reservations = data.filter(reservation => reservation.book && reservation.customer);
         this.filteredReservations = [...this.reservations]; 
       });
   }
@@ -33,9 +33,9 @@ export class ReservationsComponent implements OnInit {
   filterReservations() {
     const query = this.searchQuery.toLowerCase();
     this.filteredReservations = this.reservations.filter(reservation => 
-      reservation.book.name.toLowerCase().includes(query) ||
-      reservation.customer.name.toLowerCase().includes(query) ||
-      reservation.status.toLowerCase().includes(query)
+      (reservation.book?.name?.toLowerCase().includes(query) || 
+       reservation.customer?.name?.toLowerCase().includes(query) || 
+       reservation.status.toLowerCase().includes(query))
     );
   }
 
@@ -54,9 +54,8 @@ export class ReservationsComponent implements OnInit {
     this.httpClient.post<Reservation>('https://book-api-bx2r.onrender.com/reservations', newReservation)
       .subscribe((createdReservation: Reservation) => {
         console.log('New reservation created:', createdReservation); 
-        this.reservations.push(createdReservation);
-        this.filteredReservations = [...this.reservations]; 
-        this.filterReservations(); 
+        // Ανανεώνουμε τις κρατήσεις με την τελευταία λίστα από το API
+        this.fetchReservations(); // Κάνει refresh τα δεδομένα και ανανεώνει την λίστα
       });
   }
 
