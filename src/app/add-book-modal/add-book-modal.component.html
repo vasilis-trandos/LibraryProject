@@ -1,40 +1,59 @@
 <div class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2>Add New Book</h2>
-        <button (click)="closeModal()" class="close-button">X</button>
-      </div>
-  
-      <form (ngSubmit)="saveBook()" #bookForm="ngForm" class="add-form">
-        <label>
-          Name:
-          <input [(ngModel)]="newBook.name" name="name" required minlength="3" maxlength="15" />
-        </label>
-        <label>
-          Year:
-          <input type="number" [(ngModel)]="newBook.year" name="year" required min="1900" max="2024" />
-        </label>
-        <label>
-          Type:
-          <select [(ngModel)]="newBook.type" name="type" required>
-            <option value="Fiction">Fiction</option>
-            <option value="Non-Fiction">Non-Fiction</option>
-            <option value="Sci-Fi">Sci-Fi</option>
-            <option value="Biography">Biography</option>
-          </select>
-        </label>
-        <label>
-          Author:
-          <input [(ngModel)]="newBook.author" name="author" required minlength="3" maxlength="15" />
-        </label>
-        <label>
-          Created On:
-          <input type="date" [(ngModel)]="newBook.createdOn" name="createdOn" required />
-        </label>
-        <div class="modal-footer">
-          <button type="submit" [disabled]="bookForm.invalid">Submit</button>
-        </div>
-      </form>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Add New Book</h2>
+      <button (click)="closeModal()" class="close-button">X</button>
     </div>
+
+    <form (ngSubmit)="saveBook()" #bookForm="ngForm" class="add-form">
+      <label>
+        Name:
+        <input [(ngModel)]="newBook.name" name="name" required minlength="3" maxlength="15" />
+        <div *ngIf="bookForm.controls['name']?.invalid && bookForm.controls['name']?.touched" class="error">
+          Name must be between 3 and 15 characters.
+        </div>
+      </label>
+      
+      <label>
+        Year:
+        <input type="number" [(ngModel)]="newBook.year" name="year" required min="1900" max="2024" />
+        <div *ngIf="bookForm.controls['year']?.invalid && bookForm.controls['year']?.touched" class="error">
+          Year must be between 1900 and 2024.
+        </div>
+      </label>
+      
+      <label>
+        Type:
+        <select [(ngModel)]="newBook.type" name="type" required>
+          <option value="Fiction">Fiction</option>
+          <option value="Non-Fiction">Non-Fiction</option>
+          <option value="Sci-Fi">Sci-Fi</option>
+          <option value="Biography">Biography</option>
+        </select>
+        <div *ngIf="bookForm.controls['type']?.invalid && bookForm.controls['type']?.touched" class="error">
+          Type is required.
+        </div>
+      </label>
+      
+      <label>
+        Author:
+        <input [(ngModel)]="newBook.author" name="author" required minlength="3" maxlength="15" />
+        <div *ngIf="bookForm.controls['author']?.invalid && bookForm.controls['author']?.touched" class="error">
+          Author must be between 3 and 15 characters.
+        </div>
+      </label>
+      
+      <label>
+        Created On:
+        <input type="date" [(ngModel)]="newBook.createdOn" name="createdOn" required />
+        <div *ngIf="bookForm.controls['createdOn']?.invalid && bookForm.controls['createdOn']?.touched" class="error">
+          Please select a valid date.
+        </div>
+      </label>
+      
+      <div class="modal-footer">
+        <button type="submit" [disabled]="bookForm.invalid">Submit</button>
+      </div>
+    </form>
   </div>
-  
+</div>
